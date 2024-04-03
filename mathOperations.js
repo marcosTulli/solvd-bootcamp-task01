@@ -6,7 +6,7 @@ const String = {
     const input = [num1, num2];
     const isvalidinput = utils.handleInputValidation(input);
     if (isvalidinput && input.length === 2) {
-      const sum = input.map((i) => parseInt(i)).reduce((a, b) => a + b);
+      const sum = input.map((i) => BigInt(i)).reduce((a, b) => a + b);
       return sum.toString();
     } else {
       return strings.errorAll;
@@ -14,10 +14,10 @@ const String = {
   },
   minus: (num1, num2) => {
     const input = [num1, num2];
-    const firstParamIsLarger = input.map((i) => parseInt(i)).reduce((a, b) => a - b > 0);
+    const firstParamIsLarger = input.map((i) => BigInt(i)).reduce((a, b) => a - b > 0);
     const isValidInput = utils.handleInputValidation(input) && firstParamIsLarger;
     if (isValidInput) {
-      const rest = input.map((i) => parseInt(i)).reduce((a, b) => a - b);
+      const rest = input.map((i) => BigInt(i)).reduce((a, b) => a - b);
       return rest.toString();
     } else {
       return `${strings.errorAll}\n${strings.errorMinus}`;
@@ -27,8 +27,8 @@ const String = {
     const input = [num1, num2];
     const isValidInput = utils.handleInputValidation(input);
     if (isValidInput) {
-      const division = input.map((i) => parseInt(i)).reduce((a, b) => a / b);
-      return Math.ceil(division).toString();
+      const division = input.map((i) => BigInt(i)).reduce((a, b) => a / b);
+      return division.toString();
     } else {
       return strings.errorAll;
     }
@@ -37,7 +37,7 @@ const String = {
     const input = [num1, num2];
     const isvalidinput = utils.handleInputValidation(input);
     if (isvalidinput) {
-      const multiplication = input.map((i) => parseInt(i)).reduce((a, b) => a * b);
+      const multiplication = input.map((i) => BigInt(i)).reduce((a, b) => a * b);
       return multiplication.toString();
     } else {
       return strings.errorAll;
